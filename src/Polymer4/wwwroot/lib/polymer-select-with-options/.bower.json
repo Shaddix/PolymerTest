@@ -1,0 +1,37 @@
+{
+  "name": "polymer-select-with-options",
+  "homepage": "https://github.com/vehikl/polymer-select-with-options",
+  "authors": [
+    "Kris Braun <k.braun@vehikl.com>",
+    "Richard Bettridge <r.bettridge@vehikl.com>"
+  ],
+  "description": "Replacement for select element that works with browsers (like IE) that don't support templates inside select tags.",
+  "main": "select-with-options.html",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "polymer",
+    "select",
+    "dom-repeat",
+    "tempalte"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "7a9d1115fe",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7a9d1115fe2cbfe2fb8bd374595aa3bea70b96d9"
+  },
+  "_source": "https://github.com/vehikl/polymer-select-with-options.git",
+  "_target": "*",
+  "_originalSource": "polymer-select-with-options",
+  "_direct": true
+}

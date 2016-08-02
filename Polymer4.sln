@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9EB5646D-B3E9-4D70-8CD2-8990991753EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98F6EE69-0FD9-4B2A-A8CB-EA470C31F835}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Polymer4", "src\Polymer4\Polymer4.xproj", "{5EC7B76D-424D-4C83-BC31-2B882E12C6BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EC7B76D-424D-4C83-BC31-2B882E12C6BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EC7B76D-424D-4C83-BC31-2B882E12C6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EC7B76D-424D-4C83-BC31-2B882E12C6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EC7B76D-424D-4C83-BC31-2B882E12C6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5EC7B76D-424D-4C83-BC31-2B882E12C6BC} = {9EB5646D-B3E9-4D70-8CD2-8990991753EF}
+	EndGlobalSection
+EndGlobal

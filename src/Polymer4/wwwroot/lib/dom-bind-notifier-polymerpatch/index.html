@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>&lt;dom-bind-notifier&gt;</title>
+    <link rel="stylesheet" href="http://juicy.github.io/github-markdown-css/github-markdown.css">
+
+    <!-- Importing Web Component's Polyfill -->
+    <script src="../webcomponentsjs/webcomponents.js"></script>
+    <!-- Importing Object.observe's Polyfill -->
+    <script src="../object.observe/dist/object-observe.js"></script>
+    <!-- Importing Array.observe's Polyfill -->
+    <script src="../array.observe/array-observe.js"></script>
+
+    <link rel="import" href="../polymer/polymer.html">
+    <link rel="import" href="simple-component.html">
+    <link rel="import" href="array-component.html">
+    <style>
+      body.markdown-body{ overflow: auto; }
+      .example-block{ display: flex; flex-wrap: wrap; justify-content: center; }
+      .example-block>*{ width: 50%; padding: 0 1em;}
+
+    </style>
+</head>
+<body class="markdown-body">
+  <h1>
+    &lt;dom-bind-notifier&gt;
+  </h1>
+  <blockquote>
+    <p>
+      Adds good old Object.observe to Polymer 1.5 template binding (dom-bind)
+    </p>
+  </blockquote>
+  <p>
+    Here we bind external static JS object literal to Polymer's <code>dom-bind</code>.
+    All changes on it, are automatically notified to Polymer templates.
+    <strong>Open debug console, and fiddle with <code>simple, deep, arrays</code> objects</strong>
+  </p>
+
+  <h2>Examples</h2>
+
+  <h3>Simple</h3>
+  <div class="example-block">
+    <pre><code>
+	
+&lt;dom-module id=&quot;simple-component&quot;&gt;
+  &lt;template&gt;
+    &lt;h4&gt;ToDo list for {{model.user}}:&lt;/h4&gt;
+    &lt;button on-tap=&quot;ChangeName&quot; &gt;Change Name&lt;/button&gt;
+	&lt;dom-bind-notifier path=&quot;model&quot; observed-object=&quot;{{model}}&quot;&gt;&lt;/dom-bind-notifier&gt;
+  &lt;/template&gt;
+&lt;/dom-module&gt;
+&lt;script&gt;
+Polymer({
+  is: 'simple-component',
+  ready: function() {
+	this.model = {user: 'Artur'};
+  },
+  ChangeName: function() {
+	this.model.user = this.model.user + &quot;_1&quot;;
+  }
+});
+&lt;/script&gt;
+	
+</code></pre>
+    <div class="example">
+     <simple-component id="component1"/>
+    </div>
+    <div>
+      <button onclick="document.getElementById('component1').model.user='New Name'">Modify externally</button>
+    </div>
+  </div>
+  
+  
+  
+  <h3>Arrays</h3>
+  <div class="example-block">
+    <pre><code>
+&lt;dom-module id=&quot;array-component&quot;&gt;
+	&lt;template is=&quot;dom-bind&quot; id=&quot;arrays&quot;&gt;
+	  &lt;h4&gt;&lt;span&gt;{{organization.name}}&lt;/span&gt; people:&lt;/h4&gt;
+	  &lt;ul&gt;
+		&lt;template  is=&quot;dom-repeat&quot; items=&quot;{{organization.people}}&quot;&gt;
+		  &lt;li&gt;&lt;span&gt;{{item.first}}&lt;/span&gt; &lt;span&gt;{{item.last}}&lt;/span&gt;&lt;/li&gt;
+		&lt;/template&gt;
+	  &lt;/ul&gt;
+	  
+	  &lt;button on-tap=&quot;ChangeName&quot;&gt;Click to change &lt;code&gt;arrays.people[1].first&lt;/code&gt;to an apple&lt;/button&gt;
+	  &lt;dom-bind-notifier path=&quot;organization&quot; observed-object=&quot;{{organization}}&quot; deep&gt;&lt;/dom-bind-notifier&gt;
+	&lt;/template&gt;
+&lt;/dom-module&gt;
+
+&lt;script&gt;
+Polymer({
+  is: 'array-component',
+  ready: function() {
+	this.organization = {
+	  name: &quot;Juicy&quot;,
+	  people: [
+		{
+		  first: &quot;Tomek&quot;,
+		  last: &quot;Wytr&#281;bowicz&quot;
+		}
+	  ]
+	};
+  },
+  ChangeName: function() {
+	this.organization.people[1].first= 'An Apple';
+  }
+});
+&lt;/script&gt;
+	
+</code></pre>
+    <div class="example">
+     <array-component id="component2"/>
+    </div>
+	<div>
+      <button onclick="document.getElementById('component2').organization.people.push({first:'New', last:'Guy'});">Click to <code>push</code> a new guy to <code>arrays.people</code></button>
+      <button onclick="document.getElementById('component2').organization.people.splice(1,0,{first:'Some', last:'One'});">Click to <code>splice</code> someone in the middle of<code>arrays.people</code></button>
+      <button onclick="document.getElementById('component2').organization.people.shift();">Click to shift a person from <code>arrays.people</code></button>
+    </div>
+  </div>
+</body>
+</html>

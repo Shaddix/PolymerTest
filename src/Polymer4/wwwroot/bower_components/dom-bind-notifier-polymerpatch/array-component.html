@@ -1,0 +1,36 @@
+﻿<link rel="import" href="../polymer/polymer.html">
+<!-- Importing Custom Elements -->
+<link rel="import" href="dom-bind-notifier.html">
+<dom-module id="array-component">
+	<template is="dom-bind" id="arrays">
+	  <h4><span>{{organization.name}}</span> people:</h4>
+	  <ul>
+		<template  is="dom-repeat" items="{{organization.people}}">
+		  <li><span>{{item.first}}</span> <span>{{item.last}}</span></li>
+		</template>
+	  </ul>
+	  
+	  <button on-tap="ChangeName">Click to change <code>arrays.people[1].first</code>to an apple</button>
+	  <dom-bind-notifier path="organization" observed-object="{{organization}}" deep></dom-bind-notifier>
+	</template>
+</dom-module>
+
+<script>
+Polymer({
+  is: 'array-component',
+  ready: function() {
+	this.organization = {
+	  name: "Juicy",
+	  people: [
+		{
+		  first: "Tomek",
+		  last: "Wytrębowicz"
+		}
+	  ]
+	};
+  },
+  ChangeName: function() {
+	this.organization.people[1].first= 'An Apple';
+  }
+});
+</script>

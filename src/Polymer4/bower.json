@@ -1,0 +1,24 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.4.3",
+    "dom-bind-notifier-polymerpatch": "~1.3.3",
+    "array.observe": "~0.0.1",
+    "object.observe": "~0.2.6",
+    "polymer-select-with-options": "*",
+    "linqjs": "~3.0.5",
+    "linq-js": "*",
+    "jslinq": "*",
+    "google-chart": "~1.1.0",
+    "paper-material": "~1.0.6",
+    "paper-spinner": "~1.2.0"
+  },
+  "resolutions": {
+    "iron-ajax": "^1.0.0"
+  }
+}

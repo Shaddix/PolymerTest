@@ -12,6 +12,40 @@ namespace Polymer4.Controllers
     public class ValuesController : Controller
     {
 
+        public class ExcelRow
+        {
+            public string Title { get; set; }
+            public string Value { get; set; }
+            public string Value2 { get; set; }
+        }
+        [HttpGet]
+        [Route("excel")]
+        [Produces("application/json", "application/xml")]
+        public List<ExcelRow> Excel()
+        {
+            return new List<ExcelRow>()
+            {
+                new ExcelRow()
+                {
+                    Title = "asd",
+                    Value = "qwe",
+                    Value2 = "vvv",
+                },
+                new ExcelRow()
+                {
+                    Title = "asd2",
+                    Value = "qwe",
+                    Value2 = "vvv",
+                },
+                new ExcelRow()
+                {
+                    Title = "asd3",
+                    Value = "qwe",
+                    Value2 = "vvv",
+                },
+            };
+        }
+
         [HttpGet]
         [Route("projectHours")]
         public List<dynamic> GetProjectHours(int projectId, DateTime? startNullable, DateTime? endNullable)
